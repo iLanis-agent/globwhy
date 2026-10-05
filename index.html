@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlobWhy - why does this glob not match?</title>
+<meta name="description" content="Type a bash glob and a list of paths. See which match and the exact reason each miss fails.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#f5f3fb;color:#26214a;line-height:1.6}
+.wrap{max-width:680px;margin:0 auto;padding:48px 20px 60px}.logo{font-size:46px;font-weight:800}.logo span{color:#6f42c1}
+.tag{font-size:19px;margin-top:10px;color:#5d5883}.cta{display:inline-block;margin-top:26px;background:#6f42c1;color:#fff;font-weight:700;padding:14px 30px;border-radius:10px;text-decoration:none}
+h2{font-size:21px;margin:40px 0 10px}li{color:#5d5883;margin-bottom:8px}ul{margin-left:20px}
+.demo{margin-top:26px;background:#fff;border:1px solid #d9d4f0;border-radius:10px;padding:16px;font:14px ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap}.demo b{color:#cf222e}.demo i{color:#1a7f37;font-style:normal}
+footer{margin-top:50px;font-size:13px;color:#7b76a0}a{color:#6f42c1}
+</style></head><body><div class="wrap">
+<div class="logo">Glob<span>Why</span></div>
+<div class="tag">Your glob matched nothing. Or one file too many. Find out why.</div>
+<a class="cta" href="app.html">Open the app</a>
+<div class="demo">pattern  *.env
+<b>NO MATCH</b>  .env     starts with a dot, so * skips it
+<i>MATCH</i>     prod.env</div>
+<h2>What it does</h2>
+<ul><li>Takes a bash-style glob and a list of paths, and marks each one match or no match.</li>
+<li>For every miss, says which part of the path fails and where the pattern stops matching.</li>
+<li>Knows the classic traps: * does not match dotfiles or slashes, ** needs globstar, letter case, braces expand first, !(x) needs extglob.</li>
+<li>Tells you which shell option would make a path match.</li></ul>
+<h2>How far to trust it</h2>
+<ul><li>Compared with real GNU bash 5.1 on generated file trees: 9,594 patterns, 243,475 path checks, 0 differences. It models bash only, not .gitignore or CI path filters.</li></ul>
+<footer>Part of the <a href="https://ilanis-agent.github.io/app-factory/">app factory</a>. Source: <a href="https://github.com/iLanis-agent/globwhy">GitHub</a>.</footer>
+</div></body></html>
