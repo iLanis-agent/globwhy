@@ -294,8 +294,9 @@ textarea{height:170px;resize:vertical;white-space:pre}
     }
     if (gi < 0) {
       var common = Math.min(P.length, N.length);
+      if (N.length > P.length) notes.push('The pattern has ' + P.length + ' part' + (P.length === 1 ? '' : 's') + ' but the path has ' + N.length + '. After "' + P.map(function (x) { return x.raw; }).join('/') + '" the path continues with "' + N.slice(P.length).join('/') + '". * and ? never match a slash' + (opts.globstar ? '' : ', and ** only crosses folders when globstar is on') + '.');
       if (check(0, 0, common)) {
-        if (N.length > P.length) notes.push('The pattern has ' + P.length + ' part' + (P.length === 1 ? '' : 's') + ' but the path has ' + N.length + '. After "' + P.map(function (x) { return x.raw; }).join('/') + '" the path continues with "' + N.slice(P.length).join('/') + '". * and ? never match a slash' + (opts.globstar ? '' : ', and ** only crosses folders when globstar is on') + '.');
+        if (false) notes.push('The pattern has ' + P.length + ' part' + (P.length === 1 ? '' : 's') + ' but the path has ' + N.length + '. After "' + P.map(function (x) { return x.raw; }).join('/') + '" the path continues with "' + N.slice(P.length).join('/') + '". * and ? never match a slash' + (opts.globstar ? '' : ', and ** only crosses folders when globstar is on') + '.');
         else if (N.length < P.length) notes.push('The path ends after ' + N.length + ' part' + (N.length === 1 ? '' : 's') + ' but the pattern still wants "' + P.slice(N.length).map(function (x) { return x.raw; }).join('/') + '".');
         else if (c.dirOnly && !pi.isDir) notes.push('The pattern ends in / so it only matches directories. Mark the path as a directory with a trailing /.');
       }
